@@ -6,40 +6,79 @@
   <title>Shichi Upadhyay — Product Designer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles/main.css">
 </head>
 <body>
 
-  <!-- NAV -->
+  <!-- 1. NAV -->
   <header class="nav">
     <div class="wrap">
       <div class="brand">Shichi Upadhyay</div>
       <nav class="nav-links">
         <a href="#work">Work</a>
         <a href="#about">About</a>
+        <a href="#experience">Experience</a>
         <a href="#contact">Contact</a>
-        <a href="Shichi Upadhyay_Resume.pdf" target="_blank">Résumé</a>
+        <a href="resume.pdf" target="_blank" class="resume-btn">Résumé</a>
       </nav>
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- 2. HERO -->
   <section class="hero">
     <div class="wrap">
-      <span class="kicker">Open to product design roles</span>
+      <span class="kicker">
+        <span class="dot"></span>
+        Open to product design roles
+      </span>
       <h1>I design at the edge of <em>storytelling</em>, strategy, and systems.</h1>
       <p class="sub">Product Designer with an MS in HCI. Usually the only designer in the room — taking data-heavy platforms from zero to production.</p>
       <div class="hero-meta">
         <span>Houston, TX</span>
         <a href="mailto:shichi58@gmail.com">shichi58@gmail.com</a>
-        <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+        <a href="https://linkedin.com/in/shichi-upadhyay" target="_blank">LinkedIn</a>
+        <a href="https://shichiupadhyay.com" target="_blank">shichiupadhyay.com</a>
       </div>
     </div>
   </section>
 
-<!-- WORK -->
-<section id="work" class="work-section">
+  <!-- 3. ABOUT -->
+  <section id="about" class="about">
+    <div class="wrap">
+      <div class="shead">
+        <h2>About Me</h2>
+        <span class="rule"></span>
+        <div class="toggle">
+          <button class="toggle-btn active" data-target="story">Story</button>
+          <button class="toggle-btn" data-target="tldr">TL;DR</button>
+        </div>
+      </div>
+
+      <div class="about-content" id="story">
+        <p>I'm a product designer with a Master's in HCI from Indiana University, and I've spent most of my career embedded as the only designer on the team. At Tiger Analytics I'm the sole designer across oil & gas and financial data platforms for Quantum Capital Group.</p>
+        <p>That's how <strong>LP Nexus</strong> went from zero to MVP in three months, and how <strong>Well & Field Data Operations</strong> launched onboarding <strong>6M+ data points</strong> — a product I contributed HTML/CSS/JS to in order to get v1 out the door.</p>
+        <p>Before that: UX for an AI platform at BeProEx with safety-by-design decision flows, haptic and pressure-based mobile interactions at DeepVue, and data visualization for portfolio managers at Fidelity. My background is in electronics engineering — I keep gravitating toward systems that have to earn trust before they're useful.</p>
+      </div>
+
+      <div class="about-content hidden" id="tldr">
+        <ul class="tldr-list">
+          <li>MS in HCI, Indiana University</li>
+          <li>Sole designer at Tiger Analytics — oil & gas + financial data platforms</li>
+          <li>Took LP Nexus 0→MVP in 3 months</li>
+          <li>Launched Well & Field Data Ops onboarding 6M+ data points</li>
+          <li>Rebuilt design system — ~23 token-based components, WCAG fixed</li>
+          <li>AI platform UX at BeProEx — safety-by-design decision flows</li>
+          <li>Data visualization for portfolio managers at Fidelity</li>
+          <li>Background in electronics engineering</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 4. SELECTED WORK -->
+  <section id="work" class="work-section">
     <div class="wrap">
       <div class="shead">
         <h2>Selected Work</h2>
@@ -47,58 +86,27 @@
         <span class="mono">04</span>
       </div>
 
-      <a href="#" class="work-card">
+      <a href="case-studies/quantum-capital-group.html" class="work-card">
         <div class="work-top">
-          <h3>LP Nexus</h3>
-          <span class="mono">Tiger Analytics · Quantum Capital Group</span>
+          <h3>Quantum Capital Group</h3>
+          <span class="mono">Tiger Analytics · Finance & Oil & Gas</span>
         </div>
-        <p>Financial data platform taken from zero to MVP as the sole designer — research, IA, and prototyping, launched in three months.</p>
+        <p>LP Nexus and Well & Field Data Operations — two platforms built from zero as the sole designer, shipped inside tight engineering timelines.</p>
         <div class="stats">
           <div class="stat"><span class="n">0→MVP</span><span class="l">Sole designer</span></div>
           <div class="stat"><span class="n">3 mo</span><span class="l">Research to launch</span></div>
-        </div>
-        <div class="tags">
-          <span>0→1</span><span>Financial data</span><span>Solo ownership</span>
-        </div>
-        <span class="go">Read the case study →</span>
-      </a>
-
-      <a href="#" class="work-card">
-        <div class="work-top">
-          <h3>Well &amp; Field Data Operations</h3>
-          <span class="mono">Tiger Analytics · Oil &amp; gas</span>
-        </div>
-        <p>Designed and launched an operations platform onboarding 6M+ data points — contributed HTML/CSS/JS directly to ship version one.</p>
-        <div class="stats">
           <div class="stat"><span class="n">6M+</span><span class="l">Data points onboarded</span></div>
-          <div class="stat"><span class="n">v1</span><span class="l">Shipped w/ front-end code</span></div>
         </div>
         <div class="tags">
-          <span>Enterprise</span><span>Data-heavy UX</span><span>Design + code</span>
+          <span>0→1</span><span>Financial data</span><span>Oil & gas</span><span>Solo ownership</span>
         </div>
         <span class="go">Read the case study →</span>
       </a>
 
-      <a href="#" class="work-card">
+      <a href="case-studies/beprex.html" class="work-card">
         <div class="work-top">
-          <h3>Design System Rebuild</h3>
-          <span class="mono">Tiger Analytics · Systems</span>
-        </div>
-        <p>Rebuilt a broken component library on a token architecture, resolving WCAG failures across light and dark themes.</p>
-        <div class="stats">
-          <div class="stat"><span class="n">~23</span><span class="l">Components rebuilt</span></div>
-          <div class="stat"><span class="n">WCAG</span><span class="l">Failures fixed</span></div>
-        </div>
-        <div class="tags">
-          <span>Design systems</span><span>Accessibility</span><span>Tokens</span>
-        </div>
-        <span class="go">Read the case study →</span>
-      </a>
-
-      <a href="#" class="work-card">
-        <div class="work-top">
-          <h3>Safety-by-Design Decision Flows</h3>
-          <span class="mono">BeProEx · AI platform</span>
+          <h3>BeProEx</h3>
+          <span class="mono">AI Platform · Safety-by-design</span>
         </div>
         <p>Led UX for an AI platform — structuring how the product surfaces decisions and asks for human judgment at the right moments.</p>
         <div class="stats">
@@ -111,9 +119,189 @@
         <span class="go">Read the case study →</span>
       </a>
 
+      <a href="case-studies/fidelity-investments.html" class="work-card">
+        <div class="work-top">
+          <h3>Fidelity Investments</h3>
+          <span class="mono">UX Design · Data visualization</span>
+        </div>
+        <p>Built a brokerage application and data visualization modules for portfolio managers — improved task efficiency by 13% through iterative testing.</p>
+        <div class="stats">
+          <div class="stat"><span class="n">~13%</span><span class="l">Task efficiency gain</span></div>
+        </div>
+        <div class="tags">
+          <span>Data visualization</span><span>Finance</span><span>Usability testing</span>
+        </div>
+        <span class="go">Read the case study →</span>
+      </a>
+
+      <a href="case-studies/deepvue.html" class="work-card">
+        <div class="work-top">
+          <h3>DeepVue</h3>
+          <span class="mono">Mobile & Web · Haptic interactions</span>
+        </div>
+        <p>Crafted haptic and pressure-based mobile interactions replicating physical feedback, and developed 20+ WCAG 2.1 AA-compliant components.</p>
+        <div class="stats">
+          <div class="stat"><span class="n">20+</span><span class="l">WCAG components</span></div>
+        </div>
+        <div class="tags">
+          <span>Mobile</span><span>Haptics</span><span>Accessibility</span>
+        </div>
+        <span class="go">Read the case study →</span>
+      </a>
+
     </div>
   </section>
 
-  <script src="js/main.js"></script>
+  <!-- 5. EXPERIENCE -->
+  <section id="experience" class="experience">
+    <div class="wrap">
+      <div class="shead">
+        <h2>Experience</h2>
+        <span class="rule"></span>
+      </div>
+
+      <div class="exp-item">
+        <span class="exp-num">01</span>
+        <div class="exp-body">
+          <div class="exp-top">
+            <h3>Tiger Analytics — Quantum Capital Group</h3>
+            <span class="mono">Oct 2025 — Present</span>
+          </div>
+          <div class="exp-role">Product Designer · Sole designer</div>
+          <ul>
+            <li>Owned design across oil & gas and financial data platforms</li>
+            <li>LP Nexus from 0→MVP in 3 months</li>
+            <li>Launched Well & Field Data Operations onboarding 6M+ data points</li>
+            <li>Rebuilt design system into ~23 token-based components, fixed WCAG failures</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <span class="exp-num">02</span>
+        <div class="exp-body">
+          <div class="exp-top">
+            <h3>BeProEx</h3>
+            <span class="mono">Jun 2025 — Oct 2025</span>
+          </div>
+          <div class="exp-role">Product Designer · AI platform</div>
+          <ul>
+            <li>Led UX with safety-by-design decision flows</li>
+            <li>Built scalable systems and reusable components</li>
+            <li>Delivered 0→1 experiences through rapid prototyping</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <span class="exp-num">03</span>
+        <div class="exp-body">
+          <div class="exp-top">
+            <h3>DeepVue</h3>
+            <span class="mono">Jan 2025 — May 2025</span>
+          </div>
+          <div class="exp-role">Product Designer Intern</div>
+          <ul>
+            <li>Crafted haptic and pressure-based mobile interactions</li>
+            <li>Unified design across mobile and web — Legend Application</li>
+            <li>Developed 20+ WCAG 2.1 AA-compliant components</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <span class="exp-num">04</span>
+        <div class="exp-body">
+          <div class="exp-top">
+            <h3>Fidelity Investments</h3>
+            <span class="mono">May 2024 — Aug 2024</span>
+          </div>
+          <div class="exp-role">UX Designer Intern</div>
+          <ul>
+            <li>Improved task efficiency by ~13% through iterative testing</li>
+            <li>Designed data visualization modules for portfolio managers</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <span class="exp-num">05</span>
+        <div class="exp-body">
+          <div class="exp-top">
+            <h3>Quantiphi Inc.</h3>
+            <span class="mono">Jan 2022 — Jul 2023</span>
+          </div>
+          <div class="exp-role">Product Designer</div>
+          <ul>
+            <li>Built enterprise dashboards and AI workflows for Fortune-scale B2B clients</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 6. SKILLS -->
+  <section id="skills" class="skills-section">
+    <div class="wrap">
+      <div class="shead">
+        <h2>Skills</h2>
+        <span class="rule"></span>
+      </div>
+      <div class="skills-grid">
+        <div class="skills-group">
+          <span class="mono">Design & Tools</span>
+          <div class="skills-list">
+            <span>Interaction Design</span>
+            <span>User Flows</span>
+            <span>Information Architecture</span>
+            <span>Wireframing</span>
+            <span>Design Systems</span>
+            <span>Prototyping</span>
+            <span>Figma</span>
+            <span>HTML / CSS / JS</span>
+          </div>
+        </div>
+        <div class="skills-group">
+          <span class="mono">Research</span>
+          <div class="skills-list">
+            <span>Usability Testing</span>
+            <span>Ethnographic Research</span>
+            <span>Affinity Mapping</span>
+            <span>Heuristic Evaluation</span>
+            <span>User Interviews</span>
+          </div>
+        </div>
+        <div class="skills-group">
+          <span class="mono">Currently Exploring</span>
+          <div class="skills-list">
+            <span>Swift</span>
+            <span>React</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. FOOTER CTA -->
+  <footer id="contact">
+    <div class="wrap">
+      <span class="mono">Get in touch</span>
+      <h2>Let's talk about what you're building.</h2>
+      <p class="footer-lead">Open to product design roles — 0→1 work, design systems, and AI products especially.</p>
+      <a href="mailto:shichi58@gmail.com" class="cta-btn">Email me →</a>
+      <div class="footer-links">
+        <a href="mailto:shichi58@gmail.com">shichi58@gmail.com</a>
+        <a href="https://linkedin.com/in/shichi-upadhyay" target="_blank">LinkedIn</a>
+        <a href="resume.pdf" target="_blank">Résumé</a>
+      </div>
+      <div class="footer-bottom">
+        <span>Shichi Upadhyay © 2026</span>
+        <span>Houston, TX</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/scripts/main.js"></script>
 </body>
 </html>
