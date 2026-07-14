@@ -1,4 +1,4 @@
-# Shichi Upadhyay — Portfolio
+# Shichi Upadhyay - Portfolio
 
 Personal portfolio site built with HTML, CSS, and JavaScript.
 
@@ -12,12 +12,15 @@ Product Designer with an MS in HCI. This portfolio showcases selected work acros
 
 ## Structure
 
+```
 shichi-portfolio/
 ├── index.html
 ├── resume.pdf
 ├── assets/
-│   ├── styles/       # main.css
-│   ├── scripts/      # main.js
+│   ├── styles/
+│   │   └── main.css
+│   ├── scripts/
+│   │   └── main.js
 │   ├── fonts/
 │   └── images/
 ├── case-studies/
@@ -26,13 +29,14 @@ shichi-portfolio/
 │   ├── fidelity-investments.html
 │   └── deepvue.html
 └── README.md
+```
 
 ## Built with
 
 - HTML / CSS / JavaScript
-- [Manrope](https://fonts.google.com/specimen/Manrope) — headings
-- [Geist](https://vercel.com/font) — body
-- [Geist Mono](https://vercel.com/font) — labels
+- [Manrope](https://fonts.google.com/specimen/Manrope) - headings
+- [Geist](https://vercel.com/font) - body
+- [Geist Mono](https://vercel.com/font) - labels
 - Hosted on GitHub Pages
 
 ---
