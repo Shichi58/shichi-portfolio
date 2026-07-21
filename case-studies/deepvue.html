@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DeepVue - Shichi Upadhyay</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/styles/main.css">
+</head>
+<body class="cs-page">
+
+  <header class="nav">
+    <div class="wrap">
+      <div class="brand"><a href="../index.html">Shichi Upadhyay</a></div>
+      <nav class="nav-links" id="nav-links">
+        <a href="../index.html#work">Work</a>
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#experience">Experience</a>
+        <a href="../index.html#contact">Contact</a>
+        <a href="../resume.pdf" target="_blank" class="resume-btn">Résumé</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- 1. HERO -->
+  <section class="cs-hero">
+    <div class="wrap">
+      <a href="../index.html#work" class="cs-back">← All work</a>
+      <span class="mono cs-eyebrow">FINTECH · MOBILE &amp; WEB · TRADING</span>
+      <h1>DeepVue</h1>
+      <p class="cs-lede">
+        A trading platform for people who read market data faster than they
+        read words. The design problem was density: traders need everything
+        on screen, and everything on screen is unreadable.
+      </p>
+
+      <dl class="cs-facts">
+        <div><dt>Role</dt><dd>Product Designer, Intern</dd></div>
+        <div><dt>Platforms</dt><dd>Mobile, web, desktop</dd></div>
+        <div><dt>Timeline</dt><dd>Jan 2025 - May 2025</dd></div>
+        <div><dt>Scope</dt><dd>Interaction design, accessibility, design system</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- 2. AT A GLANCE -->
+  <section class="cs-section cs-glance">
+    <div class="wrap">
+      <div class="cs-stats">
+        <div class="stat"><span class="n">20+</span><span class="l">WCAG 2.1 AA components</span></div>
+        <div class="stat"><span class="n">15+</span><span class="l">Usability tests run</span></div>
+        <div class="stat"><span class="n">3</span><span class="l">Platforms, one system</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. PROBLEM -->
+  <section class="cs-section" id="problem">
+    <div class="wrap">
+      <div class="shead"><h2>The problem</h2><span class="rule"></span><span class="mono">01</span></div>
+      <div class="cs-body">
+        <p>Active traders work under time pressure with a lot of information
+        at once - watchlists, price movements, alerts, charts. They aren't
+        browsing. They're scanning for a specific signal and acting on it,
+        often in seconds.</p>
+
+        <p>That makes conventional mobile design assumptions unreliable.
+        Generous whitespace means less data per screen, which means more
+        scrolling, which means slower. But density without structure is just
+        noise. The design had to hold both.</p>
+
+        <p>It also had to hold across mobile, web and desktop without
+        fragmenting - the same trader moves between devices during a single
+        session and can't relearn the interface each time.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. KEY DECISIONS -->
+  <section class="cs-section" id="decisions">
+    <div class="wrap">
+      <div class="shead"><h2>Key decisions</h2><span class="rule"></span><span class="mono">02</span></div>
+
+      <div class="cs-decisions">
+
+        <article class="cs-decision">
+          <span class="mono">Decision 01</span>
+          <h3>Using touch and pressure to carry information the screen couldn't</h3>
+          <p class="cs-tension"><strong>The tension:</strong> On mobile, every
+          pixel spent on visual feedback is a pixel not spent on data. But
+          traders still need confirmation that an action registered - and in a
+          context where a mistaken tap has financial consequences.</p>
+
+          <p>I designed haptic and pressure-based interactions to carry part
+          of that load. Feedback the user feels rather than reads doesn't
+          compete for screen space, and it's faster to process than a visual
+          confirmation the eye has to find.</p>
+
+          <p>The approach borrowed from physical interfaces - the way a
+          mechanical switch tells you it engaged without you looking at it.
+          Applied to a trading interface, it meant confirmation could happen
+          in a channel that wasn't already saturated.</p>
+        </article>
+
+        <article class="cs-decision">
+          <span class="mono">Decision 02</span>
+          <h3>Building accessibility into the components, not onto the screens</h3>
+          <p class="cs-tension"><strong>The tension:</strong> Accessibility work
+          on a dense, data-heavy interface is either structural or cosmetic.
+          Auditing finished screens catches contrast failures but not the
+          deeper problems - and there were a lot of screens.</p>
+
+          <p>I built the compliance into the component library instead:
+          20-plus components meeting WCAG 2.1 AA, covering contrast, touch
+          target size, keyboard navigation and screen-reader annotation.
+          Anything assembled from those parts inherited the compliance rather
+          than needing its own audit.</p>
+
+          <p>This was the higher-leverage choice on a platform spanning three
+          device types. Screen-by-screen auditing would have scaled linearly
+          with surface area; component-level work scaled with the number of
+          patterns, which is a much smaller number.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. OUTCOME -->
+  <section class="cs-section" id="outcome">
+    <div class="wrap">
+      <div class="shead"><h2>Outcome</h2><span class="rule"></span><span class="mono">03</span></div>
+      <div class="cs-body">
+        <p>The main deliverables were a redesigned watchlist supporting
+        multi-group tracking with inline price data and quick actions, an
+        alert system with per-symbol controls, and the component library
+        underpinning both across all three platforms.</p>
+
+        <p>Over 15 usability sessions, one finding held consistently: traders
+        chose speed over polish every time. Where a more considered
+        interaction competed with a faster one, the faster one won - which
+        became the tiebreaker for the rest of the design decisions.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. REFLECTION -->
+  <section class="cs-section" id="reflection">
+    <div class="wrap">
+      <div class="shead"><h2>What I'd do differently</h2><span class="rule"></span><span class="mono">04</span></div>
+      <div class="cs-body">
+        <p>The haptic work was the most interesting part of this project and
+        the least validated. I designed the interactions and reasoned about
+        why they should help, but didn't test whether traders actually
+        registered the feedback under real time pressure - which is the only
+        condition that matters for this product.</p>
+
+        <p>Designing a novel interaction and testing a novel interaction are
+        different pieces of work. I did the first and assumed the second
+        would follow.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. NEXT -->
+  <nav class="cs-next">
+    <div class="wrap">
+      <a href="quantum-capital-group.html" class="cs-next-link">
+        <span class="mono">Next case study</span>
+        <h3>Quantum Capital Group →</h3>
+      </a>
+    </div>
+  </nav>
+
+  <footer id="contact">
+    <div class="wrap">
+      <span class="mono">Get in touch</span>
+      <h2>Let's talk about what you're building.</h2>
+      <a href="mailto:shichi58@gmail.com" class="cta-btn">Email me →</a>
+      <div class="footer-links">
+        <a href="mailto:shichi58@gmail.com">shichi58@gmail.com</a>
+        <a href="https://linkedin.com/in/shichi-upadhyay" target="_blank">LinkedIn</a>
+        <a href="../resume.pdf" target="_blank">Résumé</a>
+      </div>
+      <div class="footer-bottom">
+        <span>Shichi Upadhyay © 2026</span>
+        <span>Houston, TX</span>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="../assets/scripts/main.js"></script>
+</body>
+</html>
