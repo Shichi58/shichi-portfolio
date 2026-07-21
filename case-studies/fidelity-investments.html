@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fidelity Investments - Shichi Upadhyay</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/styles/main.css">
+</head>
+<body class="cs-page">
+
+  <header class="nav">
+    <div class="wrap">
+      <div class="brand"><a href="../index.html">Shichi Upadhyay</a></div>
+      <nav class="nav-links" id="nav-links">
+        <a href="../index.html#work">Work</a>
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#experience">Experience</a>
+        <a href="../index.html#contact">Contact</a>
+        <a href="../resume.pdf" target="_blank" class="resume-btn">Résumé</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- 1. HERO -->
+  <section class="cs-hero">
+    <div class="wrap">
+      <a href="../index.html#work" class="cs-back">← All work</a>
+      <span class="mono cs-eyebrow">FINTECH · DATA VISUALIZATION · INTERNSHIP</span>
+      <h1>Fidelity Investments</h1>
+      <p class="cs-lede">
+        Redesigning risk analysis tools for portfolio managers - people whose
+        job is reading complex financial data quickly and acting on it. The
+        work centred on one question: how should two separate tools connect
+        to each other?
+      </p>
+
+      <dl class="cs-facts">
+        <div><dt>Role</dt><dd>UX Designer, Intern</dd></div>
+        <div><dt>Team</dt><dd>ATIM - 6 people</dd></div>
+        <div><dt>Timeline</dt><dd>May 2024 - Aug 2024</dd></div>
+        <div><dt>Scope</dt><dd>Research, IA, prototyping, usability testing</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- 2. AT A GLANCE -->
+  <section class="cs-section cs-glance">
+    <div class="wrap">
+      <div class="cs-stats">
+        <div class="stat"><span class="n">~13%</span><span class="l">Task efficiency gain</span></div>
+        <div class="stat"><span class="n">5 → 2</span><span class="l">Flow options tested down</span></div>
+        <div class="stat"><span class="n">2</span><span class="l">Tools redesigned</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. PROBLEM -->
+  <section class="cs-section" id="problem">
+    <div class="wrap">
+      <div class="shead"><h2>The problem</h2><span class="rule"></span><span class="mono">01</span></div>
+      <div class="cs-body">
+        <p>Portfolio managers at Fidelity used two tools to understand risk.
+        PMRI showed where a portfolio stood against its benchmarks. Scenario
+        MRI let them model what would happen under different market
+        conditions.</p>
+
+        <p>The tools worked. What didn't work was the relationship between
+        them. A manager looking at a risk indicator and wanting to model it
+        had no clear path from one to the other - the analytical thought was
+        continuous, but the software made it a stop and restart.</p>
+
+        <p>Alongside the redesign, the team wanted a concept for a new web
+        app aimed at premium brokerage users. Different audience, different
+        needs, same three months.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. KEY DECISIONS -->
+  <section class="cs-section" id="decisions">
+    <div class="wrap">
+      <div class="shead"><h2>Key decisions</h2><span class="rule"></span><span class="mono">02</span></div>
+
+      <div class="cs-decisions">
+
+        <article class="cs-decision">
+          <span class="mono">Decision 01</span>
+          <h3>Testing five ways to connect PMRI to Scenario Builder</h3>
+          <p class="cs-tension"><strong>The tension:</strong> There was no
+          obviously correct way to link the two tools. Tighter integration
+          meant a smoother path but a heavier, more cluttered PMRI. Looser
+          integration kept each tool clean but left the manager to bridge the
+          gap themselves.</p>
+
+          <p>Rather than argue the options in the abstract, I built all five
+          and put them in front of the people who would use them. Each
+          represented a different position on that spectrum - from launching
+          Scenario Builder as a separate destination, through to embedding
+          scenario editing directly in the PMRI view.</p>
+
+          <p>Think-aloud sessions with portfolio managers narrowed five to
+          two. What separated them wasn't preference; it was where people
+          expected to end up after clicking. The options that survived
+          matched the managers' existing mental model of the analysis - the
+          ones that didn't required them to learn a new one, and that showed
+          up immediately as hesitation.</p>
+        </article>
+
+        <article class="cs-decision">
+          <span class="mono">Decision 02</span>
+          <h3>Accessibility as a constraint on the charts themselves</h3>
+          <p class="cs-tension"><strong>The tension:</strong> Financial
+          visualisations lean heavily on colour - red for loss, green for
+          gain, colour-coded risk bands. That convention is deeply held in
+          finance, and it excludes anyone who can't distinguish those
+          colours.</p>
+
+          <p>I treated non-colour encoding as a requirement from the first
+          wireframe rather than a compliance pass at the end. Status carried
+          in labels and position as well as hue, contrast ratios checked as
+          the designs developed, and interactions built to work from the
+          keyboard.</p>
+
+          <p>Doing this early cost some visual density in the first drafts.
+          It also meant the charts didn't need reworking before engineering
+          handoff, which on a twelve-week internship was the difference
+          between shipping the redesign and handing over an unfinished
+          one.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. OUTCOME -->
+  <section class="cs-section" id="outcome">
+    <div class="wrap">
+      <div class="shead"><h2>Outcome</h2><span class="rule"></span><span class="mono">03</span></div>
+      <div class="cs-body">
+        <p>Both tools were redesigned and handed to engineering: PMRI with
+        clearer graph hierarchy, better tooltips and a more legible call to
+        action, and Scenario MRI with the connection model that came out of
+        testing. The premium brokerage web app was delivered as an
+        end-to-end concept with custom widgets.</p>
+
+        <p>Usability testing measured roughly a 13% improvement in task
+        efficiency against the previous tools. The more useful signal was
+        qualitative: managers stopped asking where a control had gone, which
+        was the most common complaint at the start.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. REFLECTION -->
+  <section class="cs-section" id="reflection">
+    <div class="wrap">
+      <div class="shead"><h2>What I'd do differently</h2><span class="rule"></span><span class="mono">04</span></div>
+      <div class="cs-body">
+        <p>Five options was probably two too many. Three of the five were
+        eliminated quickly and for reasons I could have anticipated with a
+        sharper read of how managers already worked. Building them cost time
+        I could have spent testing the surviving options more deeply.</p>
+
+        <p>The instinct - test rather than argue - was right. The
+        calibration was off.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. NEXT -->
+  <nav class="cs-next">
+    <div class="wrap">
+      <a href="quantum-capital-group.html" class="cs-next-link">
+        <span class="mono">Next case study</span>
+        <h3>Quantum Capital Group →</h3>
+      </a>
+    </div>
+  </nav>
+
+  <footer id="contact">
+    <div class="wrap">
+      <span class="mono">Get in touch</span>
+      <h2>Let's talk about what you're building.</h2>
+      <a href="mailto:shichi58@gmail.com" class="cta-btn">Email me →</a>
+      <div class="footer-links">
+        <a href="mailto:shichi58@gmail.com">shichi58@gmail.com</a>
+        <a href="https://linkedin.com/in/shichi-upadhyay" target="_blank">LinkedIn</a>
+        <a href="../resume.pdf" target="_blank">Résumé</a>
+      </div>
+      <div class="footer-bottom">
+        <span>Shichi Upadhyay © 2026</span>
+        <span>Houston, TX</span>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="../assets/scripts/main.js"></script>
+</body>
+</html>

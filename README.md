@@ -17,10 +17,8 @@ shichi-portfolio/
 ├── index.html
 ├── resume.pdf
 ├── assets/
-│   ├── styles/
-│   │   └── main.css
-│   ├── scripts/
-│   │   └── main.js
+│   ├── styles/       # main.css
+│   ├── scripts/      # main.js
 │   ├── fonts/
 │   └── images/
 ├── case-studies/
@@ -29,7 +27,6 @@ shichi-portfolio/
 │   ├── fidelity-investments.html
 │   └── deepvue.html
 └── README.md
-```
 
 ## Built with
 
