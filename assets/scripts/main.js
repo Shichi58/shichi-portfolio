@@ -1,9 +1,27 @@
-document.addEventListener('DOMContentLoaded', () => {
+import { initScene } from './mode.js';
+import { initRail } from './rail.js';
+import { initFrames } from './frames.js';
+
+function boot() {
 
     // ── REDUCED MOTION ── (disables idle bob + spring transitions, like useReducedMotion())
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       document.body.classList.add('reduced-motion');
     }
+
+    initScene();
+    initRail();
+    initFrames();
+
+    const stage = document.getElementById('canvasStage');
+    function scaleCanvas() {
+      if (!stage) return;
+      const frame = stage.parentElement;
+      const s = Math.min(frame.clientWidth / 1280, frame.clientHeight / 860);
+      stage.style.transform = `scale(${s})`;
+    }
+    scaleCanvas();
+    window.addEventListener('resize', scaleCanvas);
 
     // ── LAMP (desktop + mobile lamp both toggle the same dim state) ──
     document.querySelectorAll('.lamp-item').forEach(lampBtn => {
@@ -89,4 +107,10 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   
-  });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', boot);
+  } else {
+    boot();
+  }
