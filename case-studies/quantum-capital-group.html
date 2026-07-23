@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/styles/main.css">
 </head>
-<body class="cs-page">
+<body class="cs-page qcg">
 
     <header class="nav">
         <div class="wrap">
@@ -28,7 +28,7 @@
       </header>
 
 <!-- 1. HERO -->
-<section class="cs-hero">
+<section class="cs-hero cs-wash cs-wash-top" data-rail="Overview">
     <div class="wrap">
       <a href="../index.html#work" class="cs-back">← All work</a>
       <span class="mono cs-eyebrow">PRIVATE EQUITY · INTERNAL PLATFORMS · SOLE DESIGNER</span>
@@ -51,7 +51,7 @@
   </section>
 
 <!-- 1b. FEATURED PROJECT -->
-<section class="cs-section cs-featured">
+<section class="cs-section cs-featured" data-rail="LP Nexus">
     <div class="wrap">
       <span class="mono">Featured project</span>
       <h2>LP Nexus</h2>
@@ -64,7 +64,7 @@
   </section>
 
   <!-- 2. AT A GLANCE -->
-  <section class="cs-section cs-glance">
+  <section class="cs-section cs-glance" data-rail="At a glance">
     <div class="wrap">
       <div class="cs-stats">
         <div class="stat"><span class="n">1 → 5</span><span class="l">Screens to full platform</span></div>
@@ -75,7 +75,7 @@
   </section>
 
   <!-- 3. PROBLEM -->
-  <section class="cs-section" id="problem">
+  <section class="cs-section" id="problem" data-rail="The problem">
     <div class="wrap">
       <div class="shead"><h2>The problem</h2><span class="rule"></span><span class="mono">01</span></div>
       <div class="cs-body">
@@ -97,15 +97,25 @@
         needed.</p>
       </div>
 
-      <!--<figure class="cs-figure">
-        <div class="cs-media">[ before: the single Call Notes screen ]</div>
-        <figcaption>What LP Nexus was in October 2025 - one screen, closer to a calendar than a platform.</figcaption>
-      </figure>-->
+      <!-- SNIPPET SLOT: the "before" state.
+           Swap the src, alt and caption. Delete the whole <figure> if unused. -->
+      <figure class="cs-frame">
+        <div class="cs-frame-stage">
+          <img src="../assets/images/qcg/before-call-notes.svg"
+               alt="The original single Call Notes screen in LP Nexus">
+        </div>
+        <div class="cs-frame-bar">
+          <p class="cs-frame-cap">LP Nexus: October 2025 - December 2025</p>
+          <button class="cs-frame-btn" data-zoom="out" aria-label="Zoom out">−</button>
+          <button class="cs-frame-btn" data-zoom="in" aria-label="Zoom in">+</button>
+          <button class="cs-frame-btn" data-zoom="reset" aria-label="Reset zoom">↺</button>
+        </div>
+      </figure>
     </div>
   </section>
 
   <!-- 4. CONTEXT / CONSTRAINT -->
-  <section class="cs-section" id="process">
+  <section class="cs-section" id="process" data-rail="Starting cold">
     <div class="wrap">
       <div class="shead"><h2>Starting cold</h2><span class="rule"></span><span class="mono">02</span></div>
       <div class="cs-body">
@@ -125,11 +135,42 @@
         where I filled a gap in my understanding with an assumption, and
         found out later that the assumption was wrong.</p>
       </div>
+
+      <!-- SNIPPET SLOT: two side by side. Research artifacts, early IA, flows. -->
+      <div class="cs-frame-grid cs-frame-grid-2">
+
+        <figure class="cs-frame">
+          <div class="cs-frame-stage">
+            <img src="../assets/images/qcg/research-01.svg"
+                 alt="Research synthesis from IR team interviews">
+          </div>
+          <div class="cs-frame-bar">
+            <!--<p class="cs-frame-cap">Synthesis from IR interviews</p>-->
+            <button class="cs-frame-btn" data-zoom="out" aria-label="Zoom out">−</button>
+            <button class="cs-frame-btn" data-zoom="in" aria-label="Zoom in">+</button>
+            <button class="cs-frame-btn" data-zoom="reset" aria-label="Reset zoom">↺</button>
+          </div>
+        </figure>
+
+        <figure class="cs-frame">
+          <div class="cs-frame-stage">
+            <img src="../assets/images/qcg/ia-01.svg"
+                 alt="Early information architecture for the five functions">
+          </div>
+          <div class="cs-frame-bar">
+            <!--<p class="cs-frame-cap">Early information architecture</p>-->
+            <button class="cs-frame-btn" data-zoom="out" aria-label="Zoom out">−</button>
+            <button class="cs-frame-btn" data-zoom="in" aria-label="Zoom in">+</button>
+            <button class="cs-frame-btn" data-zoom="reset" aria-label="Reset zoom">↺</button>
+          </div>
+        </figure>
+
+      </div>
     </div>
   </section>
 
   <!-- 5. KEY DECISIONS -->
-  <section class="cs-section" id="decisions">
+  <section class="cs-section" id="decisions" data-rail="Key decisions">
     <div class="wrap">
       <div class="shead"><h2>Key decisions</h2><span class="rule"></span><span class="mono">03</span></div>
 
@@ -150,7 +191,7 @@
             around deals and pipeline; LP Nexus needed to organise around the
             relationship. Inheriting a structure built for a different job was
             how the team ended up with the problem in the first place.</p>
-  
+
             <p>So I structured the platform around the shape of the IR team's
             work rather than the shape of the tool it was replacing, and made
             each function reachable without leaving the platform.</p>
@@ -163,19 +204,19 @@
             questionnaire lifecycle existed in practice but had never been written
             down. I could wait for it to be documented, or design against my best
             reconstruction and correct later.</p>
-  
+
             <p>I designed against a reconstruction - and got it wrong. My version
             included stages that weren't part of the real publishing process. The
             mismatch surfaced when I walked the flow past the primary stakeholder,
             who recognised immediately that it didn't match how DDQs actually
             move.</p>
-  
+
             <p>Working with the dev team, I rebuilt the stage structure around the
             real lifecycle. That correction is what produced the stage-status
             badges - In Progress, Completed, and the rest. They only made sense
             once the underlying stages were right; against my invented flow they
             would have been labels on a process nobody followed.</p>
-  
+
             <p>The lesson I'd carry forward: when a process is undocumented, that
             absence is itself worth surfacing early. I treated it as a gap to
             design around when it was really a question to ask.</p>
@@ -183,15 +224,60 @@
 
       </div>
 
-      <!--<figure class="cs-figure cs-figure-wide">
-        <div class="cs-media">[ DDQ flow - corrected stage structure with status badges ]</div>
-        <figcaption>The DDQ lifecycle after rebuilding it around the real publishing process.</figcaption>
-      </figure>-->
+      <!-- SNIPPET SLOT: the corrected DDQ flow. -->
+      <figure class="cs-frame">
+        <div class="cs-frame-stage">
+          <img src="../assets/images/qcg/ddq-flow.svg"
+               alt="DDQ lifecycle with corrected stage structure and status badges">
+        </div>
+        <div class="cs-frame-bar">
+          <!--<p class="cs-frame-cap">DDQ lifecycle, rebuilt around the real publishing process</p>-->
+          <button class="cs-frame-btn" data-zoom="out" aria-label="Zoom out">−</button>
+          <button class="cs-frame-btn" data-zoom="in" aria-label="Zoom in">+</button>
+          <button class="cs-frame-btn" data-zoom="reset" aria-label="Reset zoom">↺</button>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- USER FLOW -->
+  <section class="cs-section" id="flow" data-rail="User flow">
+    <div class="wrap">
+      <div class="shead"><h2>User flow</h2><span class="rule"></span><span class="mono">04</span></div>
+      <div class="cs-body">
+        <p><!-- TODO: one or two sentences on what the flow shows and why it settled this way --></p>
+      </div>
+
+      <figure class="cs-frame cs-frame-tall">
+        <div class="cs-frame-stage">
+          <img src="../assets/images/qcg/user-flow-a.svg"
+          alt="Flow from call notes through tearsheet generation to export">
+        </div>
+        <div class="cs-frame-bar">
+            <p class="cs-frame-cap">Call notes → tearsheet → export</p>
+          <button class="cs-frame-btn" data-zoom="out" aria-label="Zoom out">−</button>
+          <button class="cs-frame-btn" data-zoom="in" aria-label="Zoom in">+</button>
+          <button class="cs-frame-btn" data-zoom="reset" aria-label="Reset zoom">↺</button>
+        </div>
+      </figure>
+
+      <figure class="cs-frame cs-frame-tall">
+        <div class="cs-frame-stage">
+          <img src="../assets/images/qcg/user-flow-b.svg"
+          alt="DDQ management flow across request, response, and publishing stages">
+        </div>
+        <div class="cs-frame-bar">
+            <p class="cs-frame-cap">DDQ management</p>
+          <button class="cs-frame-btn" data-zoom="out" aria-label="Zoom out">−</button>
+          <button class="cs-frame-btn" data-zoom="in" aria-label="Zoom in">+</button>
+          <button class="cs-frame-btn" data-zoom="reset" aria-label="Reset zoom">↺</button>
+        </div>
+      </figure>
     </div>
   </section>
 
   <!-- 6. OUTCOME -->
-  <section class="cs-section" id="outcome">
+  <section class="cs-section" id="outcome" data-rail="Outcome">
     <div class="wrap">
       <div class="shead"><h2>Outcome</h2><span class="rule"></span><span class="mono">04</span></div>
       <div class="cs-body">
@@ -207,15 +293,24 @@
         outside any system.</p>
       </div>
 
-      <!--<figure class="cs-figure cs-figure-wide">
-        <div class="cs-media">[ final hi-fi - platform overview ]</div>
-        <figcaption>LP Nexus as shipped.</figcaption>
-      </figure>-->
+      <!-- SNIPPET SLOT: final hi-fi. -->
+      <figure class="cs-frame">
+        <div class="cs-frame-stage">
+          <img src="../assets/images/qcg/final-overview.svg"
+               alt="LP Nexus platform overview as shipped">
+        </div>
+        <div class="cs-frame-bar">
+          <!--<p class="cs-frame-cap">LP Nexus as shipped</p>-->
+          <button class="cs-frame-btn" data-zoom="out" aria-label="Zoom out">−</button>
+          <button class="cs-frame-btn" data-zoom="in" aria-label="Zoom in">+</button>
+          <button class="cs-frame-btn" data-zoom="reset" aria-label="Reset zoom">↺</button>
+        </div>
+      </figure>
     </div>
   </section>
 
   <!-- 7. ALSO AT QUANTUM -->
-  <section class="cs-section" id="also">
+  <section class="cs-section" id="also" data-rail="Also at Quantum">
     <div class="wrap">
       <div class="shead"><h2>Also at Quantum</h2><span class="rule"></span><span class="mono">05</span></div>
       <div class="cs-body">
@@ -268,7 +363,7 @@
     </div>
   </nav>
 
-  <footer id="contact">
+  <footer id="contact" class="cs-wash cs-wash-bottom" data-rail="Contact">
     <div class="wrap">
       <span class="mono">Get in touch</span>
       <h2>Let's talk about what you're building.</h2>
@@ -285,6 +380,15 @@
     </div>
   </footer>
 
+  <script src="https://unpkg.com/panzoom@9.4.3/dist/panzoom.min.js"></script>
   <script type="module" src="../assets/scripts/main.js"></script>
+
+  <script type="module">
+    import { initRail } from '../assets/scripts/rail.js';
+    import { initFrames } from '../assets/scripts/frames.js';
+    initRail();
+    initFrames();
+  </script>
+
 </body>
 </html>
