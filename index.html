@@ -31,23 +31,30 @@
 
 <!-- 2. HERO -->
 <section id="home">
-  <div class="wrap hero-simple">
-    <span class="mono">WELCOME TO</span>
-    <h1>Shichi's Portfolio</h1>
-    <p>designing at the edge of storytelling, strategy &amp; systems</p>
-  </div>
+  <div class="hero-top">
 
-  <div class="hero-meta-bar">
-    <div class="wrap">
-      <div class="hero-meta">
-        <span>Houston, TX</span>
-        <a href="mailto:shichi58@gmail.com">shichi58@gmail.com</a>
-        <a href="https://linkedin.com/in/shichi-upadhyay" target="_blank">LinkedIn</a>
-        <a href="resume.pdf" target="_blank">Résumé</a>
-      </div>
+    <div class="mode-switcher">
+      <button class="mode-btn mode-btn-messy active" aria-label="Messy view" aria-pressed="true">
+        <svg viewBox="0 0 32 32" width="26" height="26" fill="none" aria-hidden="true">
+          <path d="M5 22c4-10 7 4 11-6s5 8 11-2" stroke="currentColor"
+                stroke-width="2.4" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <button class="mode-btn mode-btn-tidy" aria-label="Tidy view" aria-pressed="false">
+        <svg viewBox="0 0 32 32" width="26" height="26" fill="none" aria-hidden="true">
+          <rect x="7" y="7" width="18" height="18" rx="5"
+                stroke="currentColor" stroke-width="2.4"/>
+        </svg>
+      </button>
     </div>
   </div>
+
+  <div class="canvas-frame">
+    <div id="canvasStage"></div>
+  </div>
 </section>
+
+<script type="module" src="assets/scripts/main.js"></script>
 
   <!-- 3. ABOUT -->
 <section id="about" class="about">
@@ -63,24 +70,23 @@
 
     <div class="about-text">
       <p>
-        I'm a product designer with a Master's in HCI from Indiana University
-        <span class="strike">, and I've spent most of my career embedded as the only designer on the team.</span>
-        At Tiger Analytics I'm the sole designer across oil & gas and financial data platforms for
-        <strong>Quantum Capital Group</strong>
-        <span class="strike"> - which means research, architecture, prototyping, and shipping all land on the same desk.</span>
+        Aka Shichi (शिचि), or
+        <a href="https://www.instagram.com/the_uncanny_necromancy/" target="_blank" class="about-link">@theuncannynecromancy</a>.
       </p>
       <p>
-        That's how <strong>LP Nexus</strong> went from zero to MVP in three months
-        <span class="strike">, and how Well & Field Data Operations launched onboarding 6M+ data points - a product I contributed HTML/CSS/JS to in order to get v1 out the door.</span>
+        Product Designer with an <strong>M.S. in Human-Computer Interaction</strong>, currently
+        embedded full-time at <strong>Quantum Capital Group</strong> as their sole Product
+        Designer<span class="strike"> - building systems, shipping products, and occasionally
+        writing front-end code</span>.
       </p>
       <p>
-        <span class="strike">Before that: UX for an AI platform at BeProEx with safety-by-design decision flows, haptic and pressure-based mobile interactions at DeepVue, and data visualization for portfolio managers at Fidelity.</span>
-        My background is in electronics engineering
-        <span class="strike"> - I keep gravitating toward systems that have to earn trust before they're useful.</span>
+        <span class="strike">In short, a chaos-born, curiosity-fueled designer who chases
+        stories as if they'd disappear.</span>
       </p>
       <p>
-        Away from screens, I'm usually hiking the Cascades
-        <span class="strike">, filling a trail journal, and slowly sketching out a sunrise-and-wave tattoo I still haven't committed to.</span>
+        <span class="strike">She designs like she's painting whispers, observes like a
+        detective, and adds drama like a younger sibling with no chill.</span>
+        Currently decoding the human experience: pixel by pixel, story by story.
       </p>
     </div>
 
