@@ -711,6 +711,7 @@ body.dark-mode .tile { box-shadow: 0 2px 10px rgba(0,0,0,.3); }
 
 .cs-frame-stage > img {
   width: 100%;
+  max-width: 100%;
   height: auto;
   display: block;
 }
