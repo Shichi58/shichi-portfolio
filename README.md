@@ -51,7 +51,7 @@ shichi-portfolio/
 │   ├── [ ] Add visuals — hi-fi, micro-interactions, design system
 │   ├── [ ] Make it a more personal view
 │   │
-│   ├── quantum-capital-group.html   [x] written
+│   ├── private-equity-platforms.html   [x] written
 │   ├── fidelity-investments.html    [x] written
 │   ├── deepvue.html                 [x] written
 │   └── quantiphi.html               [ ] not started
