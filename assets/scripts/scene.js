@@ -1,117 +1,131 @@
 /* ============================================================
-   HERO SCENE — data-driven
+   HERO SCENE - data-driven
    ------------------------------------------------------------
-   One array describes every object in the hero. Each item has:
+   Two modes: "messy" (scattered) and "tidy" (bento grid).
 
      id       unique key
-     w, h     intrinsic size in stage units (px at 1280x950)
-     journal  { x, y, r }  scattered pose — hand-authored
-     desk     { col, row, span }  grid slot — layout does the math
-     bob      idle-float config (amp px, dur s) — optional
-     z        stacking order — optional
-     render   () => HTML string for the item's contents
+     w, h     size in stage units (px at 1280x860)
+     messy    { x, y, r }   scattered pose
+     tidy     { x, y }      bento position (rotation always 0)
+     bob      idle float { amp, dur } - optional
+     z        stacking order - optional
+     cls      extra class - optional
+     render   () => HTML string
 
-   To move something, edit the numbers here. Nothing else.
-   To add your cat / owl / a photo, append one entry.
+   Anchors stay on their side in both modes:
+     lamp + cassette right, globe left.
    ============================================================ */
 
-   export const STAGE = { w: 1280, h: 950 };
+   export const STAGE = { w: 1280, h: 860 };
 
-   /* Desk-mode grid. Desk positions are COMPUTED from this, not
-      hand-tuned, so the structured layout stays truly aligned. */
-   export const GRID = {
-     cols: 16,
-     colW: 63,
-     gutter: 14,
-     rowH: 210,
-     originX: 56,
-     originY: 430,
-   };
-   
-   /* Placeholder tile — swap for <img> once real assets land. */
-   const tile = (bg, label = '', radius = 8) => `
+   const ph = (label, bg = '#EAEAE4', radius = 10) => `
      <div class="tile" style="--tile-bg:${bg};--tile-radius:${radius}px;">
        <span class="tile-label">${label}</span>
      </div>`;
    
    export const ITEMS = [
+   
      {
-       id: 'notebookImg',
-       w: 787, h: 525, z: 1, static: true,
-       journal: { x: 246, y: 331, r: -4 },
-       desk:    { plane: true, x: 40, y: 400, w: 1200, h: 460 },
-       render: () => `<img src="assets/images/open_notebook.png" alt=""
-                       style="width:100%;height:100%;object-fit:cover;border-radius:4px;">`,
-     },
-     {
-       id: 'polaroid1',
-       w: 197, h: 214, bob: { amp: 8, dur: 4.6 },
-       journal: { x: 301, y: 351, r: -5.5 },
-       desk:    { col: 0, row: 0, span: 3 },
+       id: 'nameBlock',
+       w: 300, h: 130, z: 12,
+       messy: { x: 130, y: 180, r: -3 },
+       tidy:  { x: 150, y: 200 },
        render: () => `
-         <div class="polaroid">
-           <div class="polaroid-ph">[ photo ]</div>
-           <span>trail day</span>
+         <div class="name-block">
+           <span class="name-initials">SU</span>
+           <span class="name-full">Shichi Upadhyay</span>
          </div>`,
      },
+   
      {
-       id: 'polaroid2',
-       w: 197, h: 214, bob: { amp: 10, dur: 5.2 },
-       journal: { x: 429, y: 386, r: 1.7 },
-       desk:    { col: 4, row: 0, span: 3 },
+       id: 'photo1',
+       w: 180, h: 140, bob: { amp: 6, dur: 4.6 },
+       messy: { x: 500, y: 130, r: 5 },
+       tidy:  { x: 500, y: 180 },
+       render: () => ph('photo 1', '#E8EEF4'),
+     },
+     {
+       id: 'photo2',
+       w: 180, h: 140, bob: { amp: 8, dur: 5.2 },
+       messy: { x: 730, y: 200, r: -6 },
+       tidy:  { x: 690, y: 180 },
+       render: () => ph('photo 2', '#F0EDE8'),
+     },
+     {
+       id: 'photo3',
+       w: 380, h: 190, bob: { amp: 6, dur: 4.0 },
+       messy: { x: 190, y: 520, r: -4 },
+       tidy:  { x: 150, y: 480 },
+       render: () => ph('photo 3 - wide', '#EAF0EC'),
+     },
+     {
+       id: 'photo4',
+       w: 180, h: 190, bob: { amp: 8, dur: 5.8 },
+       messy: { x: 620, y: 560, r: 7 },
+       tidy:  { x: 550, y: 480 },
+       render: () => ph('photo 4', '#F4E4D6'),
+     },
+     {
+       id: 'photo5',
+       w: 150, h: 190, bob: { amp: 6, dur: 4.6 },
+       messy: { x: 400, y: 340, r: -8 },
+       tidy:  { x: 750, y: 480 },
+       render: () => ph('photo 5', '#F4EDE8'),
+     },
+   
+     {
+       id: 'polaroid',
+       w: 170, h: 195, z: 14, bob: { amp: 8, dur: 5.2 },
+       messy: { x: 850, y: 400, r: 4 },
+       tidy:  { x: 870, y: 180 },
        render: () => `
          <div class="polaroid">
-           <div class="polaroid-ph">[ photo ]</div>
-           <span>field notes</span>
+           <div class="polaroid-ph">polaroid</div>
+           <span>caption</span>
          </div>`,
      },
+   
      {
-       id: 'img18',
-       w: 344, h: 229, bob: { amp: 6, dur: 4.0 },
-       journal: { x: 768, y: 512, r: -0.4 },
-       desk:    { col: 7, row: 0, span: 5 },
-       render: () => tile('#EAF0EC', '[ photo ]'),
+       id: 'catOwl',
+       w: 110, h: 92, z: 20, bob: { amp: 5, dur: 4.2 },
+       messy: { x: 300, y: 330, r: -10 },
+       tidy:  { x: 360, y: 330 },
+       render: () => `
+         <div class="cat-owl">
+           <span class="creature creature-cat">cat</span>
+           <span class="creature creature-owl">owl</span>
+         </div>`,
      },
+   
      {
-       id: 'img21',
-       w: 139, h: 139, bob: { amp: 6, dur: 4.6 },
-       journal: { x: 514, y: 565, r: 0.7 },
-       desk:    { col: 12, row: 0, span: 2 },
-       render: () => tile('#F0EDE8', '[ photo ]', 6),
+       id: 'plant',
+       w: 100, h: 130, bob: { amp: 6, dur: 5.4 },
+       messy: { x: 620, y: 300, r: 6 },
+       tidy:  { x: 940, y: 540 },
+       render: () => ph('plant', '#E4EEE6', 8),
      },
+   
      {
-       id: 'img23',
-       w: 195, h: 195, bob: { amp: 8, dur: 5.2 },
-       journal: { x: 660, y: 353, r: -8.6 },
-       desk:    { col: 0, row: 1, span: 4 },
-       render: () => tile('#F4E4D6', '[ photo ]'),
+       id: 'lampBtn',
+       w: 140, h: 270, z: 30, cls: 'lamp-item',
+       messy: { x: 1030, y: 180, r: 4 },
+       tidy:  { x: 1050, y: 190 },
+       render: () => `
+         <svg viewBox="0 0 140 270" width="140" height="270" fill="none"
+              xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+           <path d="M28 118 Q70 8 112 118 Z" class="lamp-shade-fill"/>
+           <ellipse cx="70" cy="120" rx="11" ry="6" class="bulb-glow"/>
+           <rect x="64" y="120" width="11" height="118" rx="5" class="lamp-stem"/>
+           <rect x="34" y="236" width="72" height="14" rx="7" class="lamp-base"/>
+         </svg>
+         <span class="lamp-tip">light / dark</span>`,
      },
-     {
-       id: 'img24',
-       w: 147, h: 184, bob: { amp: 8, dur: 4.0 },
-       journal: { x: 746, y: 456, r: 5.5 },
-       desk:    { col: 4, row: 1, span: 3 },
-       render: () => tile('#F4EDE8', '[ photo ]', 6),
-     },
-     {
-       id: 'img22',
-       w: 57, h: 188, bob: { amp: 10, dur: 5.8 },
-       journal: { x: 281, y: 547, r: -4.7 },
-       desk:    { col: 8, row: 1, span: 1 },
-       render: () => tile('#E8EEF4', '', 4),
-     },
-     {
-       id: 'img1014',
-       w: 98, h: 160, bob: { amp: 10, dur: 4.6 },
-       journal: { x: 672, y: 539, r: 0 },
-       desk:    { col: 10, row: 1, span: 2 },
-       render: () => tile('#E8EEF4', '', 6),
-     },
+   
      {
        id: 'cassetteBtn',
-       w: 149, h: 168, bob: { amp: 8, dur: 5.8 }, z: 20,
-       journal: { x: 361, y: 526, r: -0.6 },
-       desk:    { col: 12, row: 1, span: 3 },
+       w: 170, h: 105, z: 22, bob: { amp: 7, dur: 5.6 },
+       messy: { x: 1010, y: 540, r: -5 },
+       tidy:  { x: 1040, y: 500 },
        render: () => `
          <div class="cassette-card">
            <div class="cassette-window">
@@ -120,45 +134,37 @@
              <div class="cassette-reel" id="reelRight"></div>
            </div>
            <div class="cassette-label" id="cassetteLabel">now playing</div>
-           <div class="cassette-hint">click to play</div>
          </div>`,
      },
+   
      {
-       id: 'lampBtn',
-       w: 128, h: 283, bob: { amp: 6, dur: 5.8 }, z: 30,
-       cls: 'lamp-item',
-       journal: { x: 873, y: 300, r: 2.1 },
-       desk:    { col: 13, row: 0, span: 3, h: 283 },
+       id: 'globe',
+       w: 120, h: 120, z: 18, bob: { amp: 6, dur: 6.0 },
+       messy: { x: 120, y: 380, r: 0 },
+       tidy:  { x: 150, y: 340 },
        render: () => `
-         <svg viewBox="0 0 127 283" width="127" height="283" fill="none"
-              xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-           <polygon points="20,130 107,130 85,30 42,30" class="lamp-shade-fill"/>
-           <ellipse cx="63" cy="133" rx="10" ry="6" class="bulb-glow"/>
-           <rect x="58" y="133" width="11" height="120" rx="4" class="lamp-stem"/>
-           <rect x="30" y="250" width="67" height="14" rx="6" class="lamp-base"/>
-         </svg>
-         <span class="lamp-tip">click for dark</span>`,
+         <div class="globe-item" title="Recent trips">
+           <div class="globe-sphere"></div>
+           <span class="globe-tip">travels</span>
+         </div>`,
+     },
+   
+     {
+       id: 'portfolioBlock',
+       w: 280, h: 120, z: 12,
+       messy: { x: 760, y: 690, r: -2 },
+       tidy:  { x: 360, y: 700 },
+       render: () => `
+         <div class="portfolio-block">
+           <span class="portfolio-word">PORTFOLIO</span>
+           <div class="contact-row">
+             <a href="https://linkedin.com/in/shichi-upadhyay" target="_blank" aria-label="LinkedIn">in</a>
+             <a href="mailto:shichi58@gmail.com" aria-label="Email">@</a>
+             <a href="resume.pdf" target="_blank" aria-label="Résumé">CV</a>
+           </div>
+         </div>`,
      },
    ];
-   
-   /* ---------- desk position solver ---------- */
-   function deskPose(item) {
-     if (item.desk.plane) {
-       return { x: item.desk.x, y: item.desk.y, r: 0,
-                w: item.desk.w, h: item.desk.h };
-     }
-     const { col, row, span } = item.desk;
-     const cellW = GRID.colW * span + GRID.gutter * (span - 1);
-     const x = GRID.originX + col * (GRID.colW + GRID.gutter);
-     const y = GRID.originY + row * GRID.rowH;
-     const h = item.desk.h ?? item.h;
-     /* centre the item inside its slot so mixed sizes still align */
-     return {
-       x: Math.round(x + (cellW - item.w) / 2),
-       y: Math.round(y + (GRID.rowH - Math.min(h, GRID.rowH)) / 2),
-       r: 0,
-     };
-   }
    
    /* ---------- build DOM ---------- */
    export function mountScene(stageEl) {
@@ -166,43 +172,35 @@
      const frag = document.createDocumentFragment();
    
      const nodes = ITEMS.map((item, i) => {
-       const j = item.journal;
-       const d = deskPose(item);
+       const m = item.messy;
+       const t = item.tidy;
    
        const el = document.createElement('div');
-       el.className = 'scene-item' + (item.static ? '' : ' ci') +
-                      (item.cls ? ' ' + item.cls : '');
+       el.className = 'scene-item ci' + (item.cls ? ' ' + item.cls : '');
        el.id = item.id;
        el.style.setProperty('--w', item.w + 'px');
        el.style.setProperty('--h', item.h + 'px');
-       el.style.setProperty('--jx', j.x + 'px');
-       el.style.setProperty('--jy', j.y + 'px');
-       el.style.setProperty('--jr', j.r + 'deg');
-       el.style.setProperty('--dx', d.x + 'px');
-       el.style.setProperty('--dy', d.y + 'px');
-       el.style.setProperty('--dr', d.r + 'deg');
-       if (d.w) el.style.setProperty('--dw', d.w + 'px');
-       if (d.h) el.style.setProperty('--dh', d.h + 'px');
+       el.style.setProperty('--mx', m.x + 'px');
+       el.style.setProperty('--my', m.y + 'px');
+       el.style.setProperty('--mr', (m.r || 0) + 'deg');
+       el.style.setProperty('--tx', t.x + 'px');
+       el.style.setProperty('--ty', t.y + 'px');
        if (item.z) el.style.setProperty('--z', item.z);
    
-       /* stagger: order items by distance from stage centre so the
-          transition ripples outward instead of firing all at once */
-       const cx = j.x + item.w / 2, cy = j.y + item.h / 2;
-       const dist = Math.hypot(cx - STAGE.w / 2, cy - STAGE.h / 2);
-       el.dataset.dist = dist.toFixed(1);
+       const cx = m.x + item.w / 2, cy = m.y + item.h / 2;
+       el.dataset.dist = Math.hypot(cx - STAGE.w / 2, cy - STAGE.h / 2).toFixed(1);
    
        const inner = item.bob
-         ? `<div class="bob" style="--bob-amp:${item.bob.amp};--bob-dur:${item.bob.dur}s;--bob-delay:${(i % 4) * 0.4}s">
+         ? `<div class="bob" style="--bob-amp:${item.bob.amp};--bob-dur:${item.bob.dur}s;--bob-delay:${(i % 4) * .35}s">
               <div class="hover-lift">${item.render()}</div>
             </div>`
-         : `<div class="hover-lift">${item.render()}</div>`;
+         : `<div class="bob-static"><div class="hover-lift">${item.render()}</div></div>`;
        el.innerHTML = inner;
    
        frag.appendChild(el);
        return el;
      });
    
-     /* assign stagger index from the distance ordering */
      [...nodes]
        .sort((a, b) => a.dataset.dist - b.dataset.dist)
        .forEach((el, i) => el.style.setProperty('--stagger', i));
