@@ -2,7 +2,8 @@
 
 Personal portfolio site built with HTML, CSS, and JavaScript.
 
-🔗 **Live site:** [shichiupadhyay.com](https://shichiupadhyay.com)
+🔗 **Live site (Cloudflare Pages, full passcode gate):** [shichi-portfolio.pages.dev](https://shichi-portfolio.pages.dev)
+🔗 **shichiupadhyay.com** still points at GitHub Pages via Wix DNS (Wix won't allow the nameserver change Cloudflare needs for a custom domain) - it serves the same site as a stopgap, but the gated case study there is just a placeholder link over to the Cloudflare version, since GitHub Pages can't run the real server-side check.
 
 ---
 
@@ -12,42 +13,59 @@ Product Designer with an MS in HCI. This portfolio showcases selected work acros
 
 ## Branches
 
-- `main` — production. Auto-deploys to shichiupadhyay.com via Cloudflare Pages.
+- `main` — production. Auto-deploys to shichi-portfolio.pages.dev via
+  Cloudflare Pages, and to shichiupadhyay.com via GitHub Pages (stopgap).
 - `dev` — working branch. Merge into `main` to ship.
 
-## Hosting: Cloudflare Pages
+## Hosting: Cloudflare Pages (primary) + GitHub Pages (stopgap)
 
-Migrated from GitHub Pages so the "Private Equity Platforms" case study
+Cloudflare Pages is primary so the "Private Equity Platforms" case study
 could be gated with a real, server-side passcode check (GitHub Pages has
 no backend execution, so a client-side-only gate can't actually hide
 content - anyone can read it from page source). Cloudflare Pages Functions
 give that page a small serverless function that only returns the real
 markup after the passcode is verified server-side.
 
-**One-time setup (done outside this repo, in the Cloudflare dashboard):**
+`shichiupadhyay.com` is registered through Wix, and Wix does not allow
+custom nameservers for domains it registers - which blocks the DNS
+transfer Cloudflare Pages requires for a custom domain. Until that's
+resolved (either transfer the domain away from Wix, or move hosting to a
+platform like Netlify/Vercel that accepts a plain CNAME record instead of
+full nameserver delegation), `shichiupadhyay.com` keeps pointing at GitHub
+Pages as a stopgap so it shows a working site instead of a dead domain.
+The gated case study on that GitHub Pages copy is just a placeholder page
+linking over to the real gated version on Cloudflare - GitHub Pages has no
+way to run the actual server-side check.
+
+**One-time Cloudflare setup (done outside this repo, in the dashboard):**
 
 1. Create a free Cloudflare account (if you don't have one).
-2. Add `shichiupadhyay.com` to Cloudflare and switch the domain's
-   nameservers to the ones Cloudflare gives you. This is the one step with
-   real-world downtime risk - DNS propagation is usually minutes, but can
-   take longer.
-3. Create a Cloudflare Pages project connected to this GitHub repo.
-   - **Build output directory:** `public`
+2. Create a Cloudflare Pages project connected to this GitHub repo.
+   - **Build output directory:** `docs`
    - **Build command:** none needed (static site)
-4. In the Pages project's *Settings → Environment variables*, add
+3. In the Pages project's *Settings → Environment variables*, add
    `PEP_PASSCODE` as a **secret** (encrypted, not visible in the dashboard
    after saving) with the real passcode as its value. It's never stored in
    this repo.
-5. In the Pages project's *Custom domains*, add `shichiupadhyay.com`.
-6. Every push to `main` auto-deploys, same as GitHub Pages did.
+4. Every push to `main` auto-deploys.
+5. (Later, once the Wix nameserver issue is resolved) add
+   `shichiupadhyay.com` as a custom domain in that Pages project, and
+   delete the GitHub Pages placeholder / re-point DNS fully to Cloudflare.
+
+**One-time GitHub Pages setup (stopgap only):**
+In the repo's *Settings → Pages*, set source to "Deploy from a branch",
+branch `main`, folder `/docs`.
 
 **How the gate works:** `functions/case-studies/private-equity-platforms.html.js`
 intercepts that exact URL. On GET it always shows a passcode form. On POST
 it checks the submitted value against `env.PEP_PASSCODE`; only on a match
 does it return the real markup, which lives in
 `functions/_content/private-equity-platforms.js` - a file that sits outside
-`public/`, so Cloudflare never serves it as a static asset. No cookie or
-session is set, so the passcode is required again on every visit/reload.
+`docs/`, so neither Cloudflare nor GitHub Pages ever serves it as a static
+asset. No cookie or session is set, so the passcode is required again on
+every visit/reload. This entire gate only functions on the Cloudflare
+deployment; the GitHub Pages copy at the same URL path is a static
+placeholder (see above).
 
 ---
 
@@ -56,7 +74,7 @@ session is set, so the passcode is required again on every visit/reload.
 ```
 shichi-portfolio/
 │
-├── public/                          Cloudflare Pages build output - everything here is publicly served as-is
+├── docs/                            Build output for BOTH Cloudflare Pages and GitHub Pages - publicly served as-is
 │   │
 │   ├── index.html
 │   │   │
@@ -87,7 +105,7 @@ shichi-portfolio/
 │   │   ├── [ ] Add visuals — hi-fi, micro-interactions, design system
 │   │   ├── [ ] Make it a more personal view
 │   │   │
-│   │   ├── private-equity-platforms.html   passcode-gated, see functions/ below - not in this folder
+│   │   ├── private-equity-platforms.html   real gate: functions/ below (Cloudflare only). Here: static placeholder link (GitHub Pages stopgap)
 │   │   ├── fidelity-investments.html    [x] written
 │   │   ├── deepvue.html                 [x] written
 │   │   └── quantiphi.html               [ ] not started
@@ -105,13 +123,13 @@ shichi-portfolio/
 │   │   └── images/
 │   │       └── work/                case study card images
 │   │
-│   └── CNAME                        legacy from GitHub Pages, unused by Cloudflare
+│   └── CNAME                        shichiupadhyay.com - read by GitHub Pages, ignored by Cloudflare
 │
-├── functions/                       Cloudflare Pages Functions - server-side code, never served as static files
+├── functions/                       Cloudflare Pages Functions only - GitHub Pages ignores this folder entirely
 │   ├── case-studies/
 │   │   └── private-equity-platforms.html.js   intercepts that URL, checks passcode
 │   └── _content/
-│       └── private-equity-platforms.js        the real gated markup, lives outside public/
+│       └── private-equity-platforms.js        the real gated markup, lives outside docs/
 │
 └── README.md
 ```
@@ -131,8 +149,8 @@ shichi-portfolio/
 - Hosted on Cloudflare Pages
 
 > Serve over `http://` — `main.js` is an ES module and won't load from `file://`.
-> Locally (static pages only, functions won't run): `cd public && python3 -m http.server 8000`
-> To test the passcode gate locally, use `wrangler pages dev public` from the repo root instead.
+> Locally (static pages only, functions won't run): `cd docs && python3 -m http.server 8000`
+> To test the passcode gate locally, use `wrangler pages dev docs` from the repo root instead.
 
 ---
 
