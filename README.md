@@ -69,7 +69,6 @@ shichi-portfolio/
 │   └── images/
 │       └── work/                    case study card images
 │
-├── resume.pdf
 ├── CNAME                            shichiupadhyay.com
 └── README.md
 ```

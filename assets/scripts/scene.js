@@ -160,7 +160,6 @@
            <div class="contact-row">
              <a href="https://linkedin.com/in/shichi-upadhyay" target="_blank" aria-label="LinkedIn">in</a>
              <a href="mailto:shichi58@gmail.com" aria-label="Email">@</a>
-             <a href="resume.pdf" target="_blank" aria-label="Résumé">CV</a>
            </div>
          </div>`,
      },
