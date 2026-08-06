@@ -29,7 +29,12 @@ export function initRail() {
     });
   
     document.body.appendChild(rail);
-  
+
+    const SHOW_AFTER = 80;
+    const toggleVisible = () => rail.classList.toggle('is-visible', window.scrollY > SHOW_AFTER);
+    toggleVisible();
+    window.addEventListener('scroll', toggleVisible, { passive: true });
+
     const setActive = i => items.forEach((b, n) => b.classList.toggle('active', n === i));
     setActive(0);
   

@@ -23,6 +23,32 @@ function boot() {
     scaleCanvas();
     window.addEventListener('resize', scaleCanvas);
 
+    // ── FIGMA HERO CANVAS (scales the fixed 1440x800 canvas to fit any viewport) ──
+    const heroCanvas = document.querySelector('.hero-canvas');
+    const heroFrame = document.querySelector('.hero-canvas-frame');
+    function scaleHeroCanvas() {
+      if (!heroCanvas || !heroFrame) return;
+      const s = Math.min(1, heroFrame.clientWidth / 1440);
+      heroCanvas.style.transform = `scale(${s})`;
+      heroFrame.style.height = `${800 * s}px`;
+    }
+    scaleHeroCanvas();
+    window.addEventListener('resize', scaleHeroCanvas);
+
+    // ── FIGMA HERO JOURNAL / DESK TOGGLE ──
+    const journalBtn = document.querySelector('.hc-mode-journal');
+    const deskBtn = document.querySelector('.hc-mode-desk');
+    if (journalBtn && deskBtn) {
+      function setHeroMode(mode) {
+        const isDesk = mode === 'desk';
+        document.body.classList.toggle('hc-journal-mode', !isDesk);
+        journalBtn.setAttribute('aria-pressed', String(!isDesk));
+        deskBtn.setAttribute('aria-pressed', String(isDesk));
+      }
+      journalBtn.addEventListener('click', () => setHeroMode('journal'));
+      deskBtn.addEventListener('click', () => setHeroMode('desk'));
+    }
+
     // ── LAMP (desktop + mobile lamp both toggle the same dim state) ──
     document.querySelectorAll('.lamp-item').forEach(lampBtn => {
       lampBtn.addEventListener('click', () => {
@@ -41,7 +67,7 @@ function boot() {
       let audio = null;
       cassetteBtn.addEventListener('click', () => {
         if (!isPlaying) {
-          audio = new Audio('assets/audio/fav-song.mp3');
+          audio = new Audio('assets/audio/song.mp3');
           audio.loop = true;
           audio.play();
           reelLeft.classList.add('spinning');
@@ -60,6 +86,37 @@ function boot() {
     }
     wireCassette('cassetteBtn', 'reelLeft', 'reelRight', 'cassetteLabel');
     wireCassette('cassetteBtnM', 'reelLeftM', 'reelRightM', 'cassetteLabelM');
+
+    // ── FIGMA HERO CASSETTE (click to play/pause, both modes) ──
+    const heroCassetteBtn = document.querySelector('.hc-cassette-btn');
+    const heroCassetteImg = document.querySelector('.hc-cassette');
+    const heroOnAir = document.querySelector('.hc-onair');
+    const HERO_CASSETTE_IDLE_SRC = 'assets/images/hero/cassette.svg';
+    const HERO_CASSETTE_PLAYING_SRC = 'assets/images/hero/NewCassette.svg';
+    if (heroCassetteBtn && heroCassetteImg) {
+      let heroIsPlaying = false;
+      let heroAudio = null;
+      heroCassetteBtn.addEventListener('click', () => {
+        if (!heroIsPlaying) {
+          heroAudio = new Audio('assets/audio/song.mp3');
+          heroAudio.loop = true;
+          heroAudio.play();
+          heroCassetteImg.src = HERO_CASSETTE_PLAYING_SRC;
+          heroCassetteBtn.classList.add('hc-cassette-playing');
+          heroCassetteBtn.setAttribute('aria-pressed', 'true');
+          if (heroOnAir) heroOnAir.classList.add('hc-onair-visible');
+          heroIsPlaying = true;
+        } else {
+          heroAudio.pause();
+          heroAudio.currentTime = 0;
+          heroCassetteImg.src = HERO_CASSETTE_IDLE_SRC;
+          heroCassetteBtn.classList.remove('hc-cassette-playing');
+          heroCassetteBtn.setAttribute('aria-pressed', 'false');
+          if (heroOnAir) heroOnAir.classList.remove('hc-onair-visible');
+          heroIsPlaying = false;
+        }
+      });
+    }
   
     // ── SCROLL REVEAL ──
     const revealObserver = new IntersectionObserver((entries) => {
