@@ -296,16 +296,16 @@ body.reduced-motion .bob { animation: none !important; }
 }
 .creature { position: absolute; transition: opacity .35s ease; }
 .creature-owl { opacity: 0; }
-body.dark-mode .creature-cat { opacity: 0; }
-body.dark-mode .creature-owl { opacity: 1; }
+html.dark-mode .creature-cat { opacity: 0; }
+html.dark-mode .creature-owl { opacity: 1; }
 
 /* lamp */
 .lamp-item { cursor: pointer; }
 .lamp-shade-fill { fill: var(--amber); transition: fill .35s ease; }
 .bulb-glow { fill: #fff; opacity: .85; transition: opacity .35s ease; }
 .lamp-stem, .lamp-base { fill: #7A7168; }
-body.dark-mode .lamp-shade-fill { fill: #4A4A52; }
-body.dark-mode .bulb-glow { opacity: 0; }
+html.dark-mode .lamp-shade-fill { fill: #4A4A52; }
+html.dark-mode .bulb-glow { opacity: 0; }
 .lamp-tip {
   position: absolute; bottom: -22px; left: 50%;
   transform: translateX(-50%);
@@ -358,17 +358,35 @@ body.dark-mode .bulb-glow { opacity: 0; }
 .contact-row a:hover { background: var(--amber); color: #fff; border-color: var(--amber); }
 
 /* dark mode */
-body.dark-mode {
+html.dark-mode {
   --paper: #16171A;
   --ink: #ECEAE5;
   --ink-soft: #9A9DA4;
   --line: #2C2E33;
   --card: #1E2025;
+  --amber-wash: #3A2E22;
 }
-body.dark-mode .nav { background: rgba(22,23,26,.88); }
-body.dark-mode .polaroid { background: #24262B; }
-body.dark-mode .polaroid-ph { background: #303338; }
-body.dark-mode .tile { box-shadow: 0 2px 10px rgba(0,0,0,.3); }
+html.dark-mode .nav { background: rgba(22,23,26,.88); }
+html.dark-mode .polaroid { background: #24262B; }
+html.dark-mode .polaroid-ph { background: #303338; }
+html.dark-mode .tile { box-shadow: 0 2px 10px rgba(0,0,0,.3); }
+
+/* lamp toggle (hero) - invisible hit region over the lamp shade in chair-and-lamp.svg */
+.hc-lamp-hit {
+  position: absolute;
+  left: 235px;
+  top: 160px;
+  width: 145px;
+  height: 100px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  z-index: 2;
+  border-radius: 50%;
+}
+.hc-lamp-hit:hover { filter: drop-shadow(0 0 14px rgba(201, 123, 60, .55)); }
+html.dark-mode .hc-illustration { filter: brightness(.6); transition: filter .35s ease; }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 860px) {
@@ -971,7 +989,7 @@ body.dark-mode .tile { box-shadow: 0 2px 10px rgba(0,0,0,.3); }
   flex-direction: column;
   align-items: flex-end;
   font-family: 'Inter', sans-serif;
-  color: #000;
+  color: var(--ink);
   text-align: right;
   z-index: 6;
   transition: left .5s cubic-bezier(.4, 0, .2, 1), top .5s cubic-bezier(.4, 0, .2, 1),

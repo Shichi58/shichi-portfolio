@@ -49,12 +49,16 @@ function boot() {
       deskBtn.addEventListener('click', () => setHeroMode('desk'));
     }
 
-    // ── LAMP (desktop + mobile lamp both toggle the same dim state) ──
-    document.querySelectorAll('.lamp-item').forEach(lampBtn => {
+    // ── LAMP (toggles dark mode for the whole site, remembered across pages) ──
+    const lampBtn = document.querySelector('.hc-lamp-hit');
+    if (lampBtn) {
+      lampBtn.setAttribute('aria-pressed', String(document.documentElement.classList.contains('dark-mode')));
       lampBtn.addEventListener('click', () => {
-        document.body.classList.toggle('dim');
+        const isDark = document.documentElement.classList.toggle('dark-mode');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        lampBtn.setAttribute('aria-pressed', String(isDark));
       });
-    });
+    }
 
     // ── CASSETTE (desktop + mobile cassette each play independently) ──
     function wireCassette(btnId, reelLeftId, reelRightId, labelId) {
