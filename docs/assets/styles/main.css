@@ -170,6 +170,9 @@ footer h2 { font-size: 2rem; max-width: 18ch; margin-bottom: 16px; }
 .footer-links a { font-family: 'Geist Mono', monospace; font-size: .74rem; color: var(--ink-soft); border-bottom: 1px solid var(--line); padding-bottom: 2px; }
 .footer-links a:hover { color: var(--amber); border-bottom-color: var(--amber); }
 .footer-bottom { margin-top: 60px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-family: 'Geist Mono', monospace; font-size: .68rem; color: var(--ink-soft); }
+.footer-credits { margin-top: 10px; font-family: 'Geist Mono', monospace; font-size: .64rem; color: var(--ink-soft); opacity: .7; }
+.footer-credits a { color: var(--ink-soft); border-bottom: 1px solid var(--line); padding-bottom: 1px; }
+.footer-credits a:hover { color: var(--amber); border-bottom-color: var(--amber); }
 
 /* ── REVEAL ── */
 [data-r] { opacity: 0; transform: translateY(12px); transition: opacity .55s ease, transform .55s ease; }

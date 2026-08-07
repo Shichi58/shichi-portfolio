@@ -93,28 +93,68 @@ function boot() {
     const heroOnAir = document.querySelector('.hc-onair');
     const HERO_CASSETTE_IDLE_SRC = 'assets/images/hero/cassette.svg';
     const HERO_CASSETTE_PLAYING_SRC = 'assets/images/hero/NewCassette.svg';
+    const CROSSFADE_ON_MS = 10;
+    const CROSSFADE_OFF_MS = 100;
+
+    // Fades `from` out and `to` in together, then pauses `from`. Resolves once the blend is done.
+    function crossfade(from, to, duration) {
+      return new Promise(resolve => {
+        to.volume = 0;
+        to.play().catch(() => {});
+        const start = performance.now();
+        function step(now) {
+          const t = Math.min(Math.max((now - start) / duration, 0), 1);
+          to.volume = t;
+          from.volume = 1 - t;
+          if (t < 1) {
+            requestAnimationFrame(step);
+          } else {
+            from.pause();
+            from.currentTime = 0;
+            resolve();
+          }
+        }
+        requestAnimationFrame(step);
+      });
+    }
+
     if (heroCassetteBtn && heroCassetteImg) {
       let heroIsPlaying = false;
       let heroAudio = null;
-      heroCassetteBtn.addEventListener('click', () => {
+      heroCassetteBtn.addEventListener('click', async () => {
+        heroCassetteBtn.disabled = true;
+
         if (!heroIsPlaying) {
+          // Turning on: click sound plays in full, song blends in only during its last CROSSFADE_ON_MS.
+          const onSound = new Audio('assets/audio/SoundEffect_On.mp3');
+          onSound.volume = 1;
           heroAudio = new Audio('assets/audio/song.mp3');
           heroAudio.loop = true;
-          heroAudio.play();
           heroCassetteImg.src = HERO_CASSETTE_PLAYING_SRC;
           heroCassetteBtn.classList.add('hc-cassette-playing');
           heroCassetteBtn.setAttribute('aria-pressed', 'true');
           if (heroOnAir) heroOnAir.classList.add('hc-onair-visible');
           heroIsPlaying = true;
+
+          await new Promise(resolve => {
+            onSound.addEventListener('loadedmetadata', () => {
+              onSound.play().catch(() => {});
+              const tailDelay = Math.max(0, onSound.duration * 1000 - CROSSFADE_ON_MS);
+              setTimeout(() => crossfade(onSound, heroAudio, CROSSFADE_ON_MS).then(resolve), tailDelay);
+            }, { once: true });
+          });
         } else {
-          heroAudio.pause();
-          heroAudio.currentTime = 0;
+          // Turning off: song blends into the off click sound, then stops.
+          const offSound = new Audio('assets/audio/SoundEffect_Off.mp3');
           heroCassetteImg.src = HERO_CASSETTE_IDLE_SRC;
           heroCassetteBtn.classList.remove('hc-cassette-playing');
           heroCassetteBtn.setAttribute('aria-pressed', 'false');
           if (heroOnAir) heroOnAir.classList.remove('hc-onair-visible');
           heroIsPlaying = false;
+          await crossfade(heroAudio, offSound, CROSSFADE_OFF_MS);
         }
+
+        heroCassetteBtn.disabled = false;
       });
     }
   
