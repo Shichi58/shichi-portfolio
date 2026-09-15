@@ -37,16 +37,22 @@
       <!-- left-side illustration -->
       <img class="hc-illustration" src="assets/images/hero/chair-and-lamp.svg" alt="" aria-hidden="true">
       <button type="button" class="hc-lamp-hit" aria-label="Toggle dark mode" aria-pressed="false"></button>
-      <img class="hc-cat" src="assets/images/hero/cat.svg" alt="" aria-hidden="true">
-      <button type="button" class="hc-cassette-btn" aria-label="Play song" aria-pressed="false">
+      <span class="hc-cat" data-tooltip="Meow!">
+        <img src="assets/images/hero/cat.svg" alt="" aria-hidden="true">
+      </span>
+      <button type="button" class="hc-cassette-btn" aria-label="Play song" aria-pressed="false" data-tooltip="Click">
         <img class="hc-cassette" src="assets/images/hero/cassette.svg" alt="" aria-hidden="true">
       </button>
       <img class="hc-onair" src="assets/images/hero/onAir.svg" alt="" aria-hidden="true">
       <img class="hc-journal" src="assets/images/hero/open-journal.svg" alt="" aria-hidden="true">
 
       <!-- profile photos -->
-      <img class="hc-photo-a" src="assets/images/hero/Me2.svg" alt="Shichi Upadhyay" aria-hidden="true">
-      <img class="hc-photo hc-photo-b" src="assets/images/hero/Me1.png" alt="Shichi Upadhyay" aria-hidden="true">
+      <span class="hc-photo-a" data-tooltip="Shenandoah National Park">
+        <img src="assets/images/hero/Me2.svg" alt="Shichi Upadhyay" aria-hidden="true">
+      </span>
+      <span class="hc-photo hc-photo-b" data-tooltip="Tatte Bakery &amp; Cafe, Cambridge">
+        <img src="assets/images/hero/Me1.png" alt="Shichi Upadhyay" aria-hidden="true">
+      </span>
 
       <!-- headline -->
       <div class="hc-text">
@@ -54,6 +60,22 @@
         <span class="hc-line-lg">SHICHI</span>
         <span class="hc-line-lg">UPADHYAY&rsquo;S</span>
         <span class="hc-line-sm">World of Aha!</span>
+      </div>
+
+      <!-- social links -->
+      <div class="hc-socials">
+        <a href="https://linkedin.com/in/shichi-upadhyay" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.446-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="https://github.com/Shichi58" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.36-3.37-1.36-.46-1.18-1.11-1.5-1.11-1.5-.91-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.04 1.03-2.76-.1-.26-.45-1.31.1-2.73 0 0 .84-.28 2.75 1.05a9.32 9.32 0 0 1 2.5-.34c.85 0 1.71.11 2.5.34 1.91-1.33 2.75-1.05 2.75-1.05.55 1.42.2 2.47.1 2.73.64.72 1.03 1.64 1.03 2.76 0 3.94-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.48-.01 2.82 0 .27.18.58.69.48A10.02 10.02 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>
+        </a>
+        <a href="https://twitter.com/NowKillingEve" target="_blank" rel="noopener" aria-label="Twitter">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/the_uncanny_necromancy/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.148 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
       </div>
 
       <!-- journal / desk mode toggle -->
@@ -73,7 +95,9 @@
       </button>
 
       <!-- polaroid-style photo group -->
-      <img class="hc-group6" src="assets/images/hero/coffee and croissant.svg" alt="Cuppa Tahoe" aria-hidden="true">
+      <span class="hc-group6" data-tooltip="Lake Tahoe">
+        <img src="assets/images/hero/coffee and croissant.svg" alt="Cuppa Tahoe" aria-hidden="true">
+      </span>
 
     </div>
   </div>
@@ -131,18 +155,11 @@
       <div class="work-info">
         <div class="work-info-top">
           <div class="work-eyebrow">
-            <span class="mono">0→1 · Finance & Oil & Gas</span>
+            <span class="mono">Product Designer</span>
             <span class="rule"></span>
           </div>
           <h3>Private Equity Platforms</h3>
-          <p>An LP platform and a field data operations platform - two platforms built from zero as the sole designer, shipped inside tight engineering timelines.</p>
-          <span class="work-chip">
-            <span>Private Equity</span>
-            <span class="chip-dot"></span>
-            <span>Solo ownership</span>
-            <span class="chip-dot"></span>
-            <span>Enterprise</span>
-          </span>
+          <p>Two platforms built from zero as the sole designer. I ran the research, defined the architecture, drew every screen, and built the visual language and token system that holds them together - then shipped it with engineering.</p>
         </div>
         <div class="work-stats">
           <span class="stat-rule"></span>
@@ -163,8 +180,8 @@
         </div>
       </div>
       <div class="work-right">
-        <a href="case-studies/private-equity-platforms.html" class="work-image pep-placeholder">
-          <div class="work-placeholder">Private Equity Platforms</div>
+        <a href="case-studies/private-equity-platforms.html" class="work-image pep-photo">
+          <img src="assets/images/work/privateequityplatforms.jpg" alt="Private equity data platform interface">
         </a>
         <a href="case-studies/private-equity-platforms.html" class="view-btn">
           View Case Study <span>→</span>
@@ -177,18 +194,11 @@
       <div class="work-info">
         <div class="work-info-top">
           <div class="work-eyebrow">
-            <span class="mono">Mobile & Web · Haptic interactions</span>
+            <span class="mono">Product Designer Intern</span>
             <span class="rule"></span>
           </div>
           <h3>DeepVue</h3>
-          <p>Crafted haptic and pressure-based mobile interactions replicating physical feedback, and developed 20+ WCAG 2.1 AA-compliant components.</p>
-          <span class="work-chip">
-            <span>Mobile</span>
-            <span class="chip-dot"></span>
-            <span>Haptics</span>
-            <span class="chip-dot"></span>
-            <span>Accessibility</span>
-          </span>
+          <p>Designed a mobile trading experience where haptic and pressure-based interactions stand in for physical feedback - so traders can act on a watchlist by feel, not just by looking. Built 20+ WCAG 2.1 AA components alongside it, so the interface holds up when touch isn't an option.</p>
         </div>
         <div class="work-stats">
           <span class="stat-rule"></span>
@@ -215,18 +225,11 @@
       <div class="work-info">
         <div class="work-info-top">
           <div class="work-eyebrow">
-            <span class="mono">UX Design · Data visualization</span>
+            <span class="mono">UX Designer Intern</span>
             <span class="rule"></span>
           </div>
           <h3>Fidelity Investments</h3>
-          <p>Built a brokerage application and data visualization modules for portfolio managers - improved task efficiency by 13% through iterative testing.</p>
-          <span class="work-chip">
-            <span>Data visualization</span>
-            <span class="chip-dot"></span>
-            <span>Finance</span>
-            <span class="chip-dot"></span>
-            <span>Usability testing</span>
-          </span>
+          <p>Designed data visualization modules for portfolio managers inside Fidelity's brokerage platform - dense position and performance data that had to stay scannable under time pressure. Iterative usability testing cut task time by 13%.</p>
         </div>
         <div class="work-stats">
           <span class="stat-rule"></span>
@@ -251,48 +254,6 @@
   </div>
 </section>
 
-  <!-- 6. SKILLS -->
-  <section id="skills" class="skills-section" data-rail="Skills">
-    <div class="wrap">
-      <div class="shead">
-        <h2>Skills</h2>
-        <span class="rule"></span>
-      </div>
-      <div class="skills-grid">
-        <div class="skills-group">
-          <span class="mono">Design & Tools</span>
-          <div class="skills-list">
-            <span>Interaction Design</span>
-            <span>User Flows</span>
-            <span>Information Architecture</span>
-            <span>Wireframing</span>
-            <span>Design Systems</span>
-            <span>Prototyping</span>
-            <span>Figma</span>
-            <span>HTML / CSS / JS</span>
-          </div>
-        </div>
-        <div class="skills-group">
-          <span class="mono">Research</span>
-          <div class="skills-list">
-            <span>Usability Testing</span>
-            <span>Ethnographic Research</span>
-            <span>Affinity Mapping</span>
-            <span>Heuristic Evaluation</span>
-            <span>User Interviews</span>
-          </div>
-        </div>
-        <div class="skills-group">
-          <span class="mono">Currently Exploring</span>
-          <div class="skills-list">
-            <span>Swift</span>
-            <span>React</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- 7. FOOTER CTA -->
   <footer id="contact" data-rail="Contact">
     <div class="wrap">
@@ -302,7 +263,22 @@
       <a href="mailto:shichi58@gmail.com" class="cta-btn">Email me →</a>
       <div class="footer-links">
         <a href="mailto:shichi58@gmail.com">shichi58@gmail.com</a>
-        <a href="https://linkedin.com/in/shichi-upadhyay" target="_blank">LinkedIn</a>
+        <a href="https://linkedin.com/in/shichi-upadhyay" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.446-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://github.com/Shichi58" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.36-3.37-1.36-.46-1.18-1.11-1.5-1.11-1.5-.91-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.04 1.03-2.76-.1-.26-.45-1.31.1-2.73 0 0 .84-.28 2.75 1.05a9.32 9.32 0 0 1 2.5-.34c.85 0 1.71.11 2.5.34 1.91-1.33 2.75-1.05 2.75-1.05.55 1.42.2 2.47.1 2.73.64.72 1.03 1.64 1.03 2.76 0 3.94-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.48-.01 2.82 0 .27.18.58.69.48A10.02 10.02 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>
+          GitHub
+        </a>
+        <a href="https://twitter.com/NowKillingEve" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          Twitter
+        </a>
+        <a href="https://www.instagram.com/the_uncanny_necromancy/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.148 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          Instagram
+        </a>
       </div>
       <div class="footer-bottom">
         <span>Shichi Upadhyay © 2026</span>
