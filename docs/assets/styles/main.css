@@ -162,7 +162,7 @@ footer h2 { font-size: 2rem; max-width: 18ch; margin-bottom: 16px; }
 .cta-btn {
   display: inline-block; font-family: 'Geist Mono', monospace; font-size: .82rem;
   background: var(--ink); color: var(--paper); padding: 13px 24px;
-  border-radius: 2px; transition: background .2s ease;
+  border-radius: 6px; transition: background .2s ease;
 }
 .cta-btn:hover { background: var(--amber); }
 .footer-links { display: flex; gap: 22px; margin-top: 32px; flex-wrap: wrap; }
