@@ -135,6 +135,7 @@ a { color: inherit; text-decoration: none; }
 .view-btn:hover { background: var(--paper); }
 .view-btn span { display: inline-block; transition: transform .2s ease; }
 .view-btn:hover span { transform: translateX(4px); }
+.view-btn .lock-icon { width: 15px; height: 15px; flex-shrink: 0; }
 
 /* ── EXPERIENCE ── */
 .experience { padding: 104px 0; }
